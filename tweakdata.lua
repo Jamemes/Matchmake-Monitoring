@@ -611,6 +611,12 @@ dohttpreq("https://raw.githubusercontent.com/segabl/pd2-streamlined-heisting/mas
 	end
 end)
 
+dohttpreq("https://github.com/Jamemes/Original-Pack/blob/legacy/mod.txt", function(page)
+	if latest_matchmaking_key then
+		tweak_data.matchmaking_keys["Original Pack"] = "Classic_Pack_" .. find_key(page, '"version" : \"')
+	end
+end)
+
 dohttpreq("https://raw.githubusercontent.com/Crackdown-PD2/BigLobby3/refs/heads/master/lua/_custom/biglobby_globals.lua", function(page)
 	if latest_matchmaking_key then
 		tweak_data.matchmaking_keys["Big Lobby"] = latest_matchmaking_key .. ":biglobby-" .. "3.27.6"
