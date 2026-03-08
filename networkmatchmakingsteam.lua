@@ -94,9 +94,10 @@ function NetworkMatchMakingSTEAM:search_lobby()
 						numbers[1] = 1
 					end
 
+					local show_mutators = self._BUILD_SEARCH_INTEREST_KEY == tostring(tweak_data.matchmaking_keys[room_info.game_version])
 					local attributes_data = {
 						numbers = numbers,
-						mutators = type(self._get_mutators_from_lobby) == "function" and self:_get_mutators_from_lobby(lobby),
+						mutators = show_mutators and type(self._get_mutators_from_lobby) == "function" and self:_get_mutators_from_lobby(lobby),
 						crime_spree = tonumber(validated_value(lobby, "crime_spree")),
 						crime_spree_mission = validated_value(lobby, "crime_spree_mission"),
 						mods = validated_value(lobby, "mods"),

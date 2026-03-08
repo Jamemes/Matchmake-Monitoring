@@ -93,15 +93,15 @@ function NetworkMatchMakingEPIC:search_lobby(friends_only, no_filters)
 				local numbers = self:_lobby_to_numbers(lobby)
 				if not validated_value(lobby, self._BUILD_SEARCH_INTEREST_KEY) then
 					if room_info.game_version ~= unknown_key then
-							numbers[1] = 1
+						numbers[1] = 1
 					end
 				end
 				if filters_passed then
 					table.insert(info.room_list, room_info)
-
+					local show_mutators = self._BUILD_SEARCH_INTEREST_KEY == tostring(tweak_data.matchmaking_keys[room_info.game_version])
 					local attributes_data = {
 						numbers = numbers,
-						mutators = self:_get_mutators_from_lobby(lobby),
+						mutators = show_mutators and self:_get_mutators_from_lobby(lobby),
 						crime_spree = tonumber(lobby:key_value("crime_spree")),
 						crime_spree_mission = lobby:key_value("crime_spree_mission"),
 						mods = lobby:key_value("mods"),
