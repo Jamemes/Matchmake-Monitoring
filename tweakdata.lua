@@ -1,5 +1,4 @@
 Hooks:Add("LocalizationManagerPostInit", "matchmake_monitoring_loc", function(self, ...)
-	log(self._distribution)
 	LocalizationManager:add_localized_strings({
 		menu_toggle_friends_only = "Search for lobbies of other versions",
 	})
