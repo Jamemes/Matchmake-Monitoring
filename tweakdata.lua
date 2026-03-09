@@ -568,10 +568,11 @@ end)
 
 local function find_key(page, str)
 	local _, st = string.find(tostring(page), str)
+	st = st or 0
 	local en, _ = string.find(tostring(page), '"', st + 1)
-	local key = string.sub(tostring(page), st + 1, en - 1)
-	
-	return key
+	en = en or 0
+
+	return string.sub(tostring(page), st + 1, en - 1)
 end
 
 local standard_str = 'NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = \"'
