@@ -1,7 +1,7 @@
 [
     {
         "ident": "Matchmake-Monitoring",
-        "version": "1",
+        "version": "2",
         "patchnotes_url": "https://github.com/Jamemes/Matchmake-Monitoring/commits/main",
         "download_url": "https://github.com/Jamemes/Matchmake-Monitoring/archive/refs/heads/main.zip"
     }
